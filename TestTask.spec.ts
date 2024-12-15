@@ -56,5 +56,5 @@ test("My test task", async ({ page }) => {
 
   // 9)
   await clearBtn.click()
-  expect(await inputField.getAttribute("value")).toBe("")
+  await expect(inputField.getAttribute("value")).toBe("")
 })
