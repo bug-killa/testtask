@@ -55,6 +55,13 @@ test("My test task", async ({ page }) => {
   const clearBtn = page.locator('div[aria-label="Очистить"]')
 
   // 9)
+  const currentUrl = await page.url()
   await clearBtn.click()
-  await expect(inputField.getAttribute("value")).toBe("")
+
+  const searchIconBtn = page.locator('button[aria-label="Поиск"]')
+  await searchIconBtn.click()
+  
+  const updatedUrl = await page.url()
+  await expect(updatedUrl).toBe(currentUrl)
+
 })
